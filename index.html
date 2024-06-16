@@ -17,189 +17,262 @@
     </script>
     
     <style>
-
-                /* General Body Styling */
         body {
-            font-family: Arial, sans-serif; /* Sets the default font for the document */
-            margin: 0; /* Removes default margin */
-            padding: 0; /* Removes default padding */
-            box-sizing: border-box; /* Ensures padding and border are included in the element's total width and height */
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
+        
 
-        /* Header Styling */
+        
         header {
-            display: flex; /* Uses flexbox layout for the header */
-            justify-content: space-between; /* Spaces out child elements evenly with space between them */
-            align-items: center; /* Aligns child elements vertically in the center */
-            padding: 10px 20px; /* Adds padding inside the header */
-            background-color: #fff; /* Sets the background color to white */
-            border-bottom: 1px solid #ddd; /* Adds a light gray bottom border */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #fff;
+            border-bottom: 1px solid #ddd;
         }
-
-        /* Logo Styling */
+        
         .logo {
-            font-size: 20px; /* Sets the font size */
-            font-weight: bold; /* Makes the text bold */
+            font-size: 20px;
+            font-weight: bold;
         }
-
-        /* Navigation Styling */
+        
+        /* Navigation Style */
         nav ul {
-            list-style: none; /* Removes default list styling */
-            padding: 0; /* Removes default padding */
-            margin: 0; /* Removes default margin */
-            display: flex; /* Uses flexbox layout */
-            align-items: center; /* Aligns list items vertically in the center */
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            align-items: center;
         }
-
+        
         nav ul li {
-            margin: 0 15px; /* Adds margin on the left and right of each list item */
+            margin: 0 15px;
         }
-
+        
         nav ul li a {
-            color: black; /* Sets the text color to black */
-            text-decoration: none; /* Removes default underline */
-            font-weight: bold; /* Makes the text bold */
-            font-size: 1em; /* Sets the font size */
+            color: black;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1em;
         }
-
-        nav ul li a: hover {
-            text-decoration: underline; /* Underlines the text on hover */
+        
+        nav ul li a:hover {
+            text-decoration: underline;
         }
-
+        
         /* Navigation Buttons Styles */
         .nav-buttons {
-            display: flex; /* Uses flexbox layout */
-            gap: 10px; /* Adds a gap between buttons */
+            display: flex;
+            gap: 10px;
         }
-
+        
         .nav-buttons a {
-            background-color: black; /* Sets the background color to black */
-            color: white; /* Sets the text color to white */
-            padding: 10px 15px; /* Adds padding inside the buttons */
-            text-decoration: none; /* Removes default underline */
-            border-radius: 5px; /* Rounds the corners of the buttons */
+            background-color: black;
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 5px;
         }
-
-        .nav-buttons a: hover {
-            background-color: #333; /* Darkens the background color on hover */
+        
+        .nav-buttons a:hover {
+            background-color: #333;
         }
-
-        /* Main Content Styling */
+        
+        /* Main Content Styles */
         .main-content {
-            max-width: 800px; /* Sets the maximum width for the main content */
-            margin: 0 auto; /* Centers the main content horizontally */
-            padding: 20px; /* Adds padding inside the main content area */
-            background-color: #f9f9f9; /* Sets the background color to light gray */
-            border-radius: 8px; /* Rounds the corners of the main content */
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow for depth */
+            min-height: 60vh;
+            padding: 20px 50px;
+            
         }
 
-        /* Text Section Styling */
-        .text-section h1 {
-            text-align: center; /* Centers the text horizontally */
-            margin-bottom: 20px; /* Adds margin below the heading */
-            font-size: 2rem; /* Sets the font size */
-            color: #333; /* Sets the text color to dark gray */
+        /* Slideshow */
+        .slideshow-container {
+            position: relative;
+            max-width: 100%;
+            margin: auto;
         }
 
-        /* Form Label Styling */
-        label {
-            margin-top: 15px; /* Adds margin above the label */
-            font-weight: bold; /* Makes the text bold */
-            color: #555; /* Sets the text color to medium gray */
+        .slideshow ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
         }
 
-        /* Form Input, Textarea, and Button Styling */
-        input, textarea, button {
-            width: 100%; /* Sets the width to 100% of the container */
-            padding: 10px; /* Adds padding inside the elements */
-            margin-top: 5px; /* Adds margin above the elements */
-            border: 1px solid #ccc; /* Sets the border color to light gray */
-            border-radius: 4px; /* Rounds the corners of the elements */
-            font-size: 1rem; /* Sets the font size */
+        .slideshow ul li {
+            display: none;
         }
 
-        /* Input and Textarea Focus Styling */
-        input:focus, textarea:focus {
-            outline: none; /* Removes the default outline */
-            border-color: #007BFF; /* Changes the border color to blue on focus */
+        .slideshow ul li img {
+            width: 100%;
+            height: 500px; /* Adjust height as needed */
+            object-fit: cover;
         }
 
-        /* Textarea Resizing */
-        textarea {
-            resize: vertical; /* Allows vertical resizing only */
+        .slideshow .prev, .slideshow .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
         }
 
-        /* Button Styling */
-        button {
-            background-color: #007BFF; /* Sets the background color to blue */
-            color: white; /* Sets the text color to white */
-            border: none; /* Removes the default border */
-            cursor: pointer; /* Changes the cursor to a pointer on hover */
-            margin-top: 20px; /* Adds margin above the button */
-            font-size: 1.2rem; /* Sets the font size */
+        .slideshow .prev {
+            left: 0;
+            border-radius: 3px 0 0 3px;
         }
 
-        button: hover {
-            background-color: #0056b3; /* Darkens the background color on hover */
+        .slideshow .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
         }
 
-        /* Footer Styling */
+        .slideshow .prev:hover, .slideshow .next:hover {
+            background-color: rgba(0,0,0,0.8);
+        }
+
+        /* Centered Text */
+        .text-center {
+            text-align: center;
+        }
+        
+        .alignfull {
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .alignwide {
+            margin: 0 auto;
+            width: fit-content;
+        }
+        
+        .button {
+            background-color: black;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+        }
+        
+        .button.full-width {
+            width: 100%;
+            max-width: 500px;
+        }
+        
+        .button:hover {
+            background-color: #333;
+        }
+        
+        /* Artist Profiles */
+        .artist-profiles {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+        }
+
+        .artist {
+            text-align: center;
+            flex: 1;
+            margin: 0 10px;
+        }
+
+        .artist img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        /* Subscriptions */
+        .subscriptions form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            margin-top: 20px;
+        }
+        
+        .subscriptions input[type="email"] {
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+            max-width: 500px;
+        }
+        
+        .subscriptions button {
+            padding: 10px;
+            background-color: black;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            max-width: 500px;
+        }
+        
+        .subscriptions button:hover {
+            background-color: #333;
+        }
+        
+        /* Footer Styles */
         .footer {
-            display: flex; /* Uses flexbox layout */
-            justify-content: space-between; /* Spaces out child elements evenly with space between them */
-            padding: 20px; /* Adds padding inside the footer */
-            background-color: #f0f0f0; /* Sets the background color to light gray */
-            border-top: 1px solid #ddd; /* Adds a light gray top border */
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            background-color: #f0f0f0;
+            border-top: 1px solid #ddd;
         }
-
-        /* Footer Section Styling */
+    
+        
         .footer-section {
-            flex: 1; /* Allows the section to grow and shrink as needed */
-            padding: 0 20px; /* Adds padding on the left and right */
+            flex: 1;
+            padding: 0 20px;
         }
-
-        /* Footer Actions Styling */
         .footer-actions {
-            margin-top: 20px; /* Adds margin above the footer actions */
+            margin-top: 20px;
         }
-
+        
         .footer-actions form {
-            display: flex; /* Uses flexbox layout */
-            justify-content: space-between; /* Spaces out child elements evenly with space between them */
-            align-items: center; /* Aligns child elements vertically in the center */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
-
+        
         .footer-actions input {
-            width: 70%; /* Sets the input width to 70% of its container */
-            padding: 10px; /* Adds padding inside the input */
-            margin-right: 10px; /* Adds margin on the right of the input */
+            width: 70%;
+            padding: 10px;
+            margin-right: 10px;
         }
-
-        .footer-actions .subscribe-button {
-            width: 30%; /* Sets the button width to 30% of its container */
-            background-color: #000; /* Sets the background color to black */
-            color: #fff; /* Sets the text color to white */
-            border: none; /* Removes the default border */
-            padding: 10px; /* Adds padding inside the button */
-            cursor: pointer; /* Changes the cursor to a pointer on hover */
-        }
-
+        
         .footer-actions button {
-            padding: 10px; /* Adds padding inside the button */
-            background-color: black; /* Sets the background color to black */
-            color: white; /* Sets the text color to white */
-            border: none; /* Removes the default border */
-            border-radius: 5px; /* Rounds the corners of the button */
-            cursor: pointer; /* Changes the cursor to a pointer on hover */
-            width: 100%; /* Sets the width to 100% of the container */
-            max-width: 500px; /* Sets the maximum width */
+            padding: 10px;
+            background-color: black;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            max-width: 500px;
         }
-
-        .footer-actions button: hover {
-            background-color: #333; /* Darkens the background color on hover */
+        
+        .footer-actions button:hover {
+            background-color: #333;
         }
-
     </style>
 </head>
 <body>
